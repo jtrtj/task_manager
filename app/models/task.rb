@@ -7,4 +7,7 @@ class Task
         @description              = task_params["description"]
         @title                    = task_params["title"]
     end
+
+    def save
+        @database.execute("INSERT INTO tasks (title, description) VALUES (?, ?);", @title, @description)
 end
